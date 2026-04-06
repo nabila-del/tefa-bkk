@@ -29,6 +29,8 @@
 
 // Type definition untuk Job
 // Definisikan struktur data lowongan kerja
+import { ref } from 'vue'
+
 export interface Job {
   id: number
   title: string           // Judul lowongan

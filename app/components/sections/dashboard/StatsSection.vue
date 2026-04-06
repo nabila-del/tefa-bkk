@@ -40,21 +40,21 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section class="mb-8">
-    <h2 class="text-lg font-semibold text-gray-900 mb-4">Ringkasan</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <section class="mb-12">
+    <h2 class="text-xl font-bold text-slate-900 mb-6">Ringkasan Aktivitas</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div
         v-for="stat in stats"
         :key="stat.label"
-        class="bg-white rounded-xl p-4 shadow-sm"
+        class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
       >
-        <div class="flex items-center gap-3">
-          <div :class="[stat.color, 'w-10 h-10 rounded-lg flex items-center justify-center text-xl']">
+        <div class="flex items-center gap-4">
+          <div :class="[stat.color, 'w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-sm']">
             {{ stat.icon }}
           </div>
-          <div>
-            <p class="text-2xl font-bold text-gray-900">{{ stat.value }}</p>
-            <p class="text-sm text-gray-500">{{ stat.label }}</p>
+          <div class="flex-1">
+            <p class="text-3xl font-bold text-slate-900">{{ stat.value }}</p>
+            <p class="text-sm font-medium text-slate-600 mt-1">{{ stat.label }}</p>
           </div>
         </div>
       </div>

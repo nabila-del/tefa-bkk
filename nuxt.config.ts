@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/a11y',
     '@nuxt/hints',
     '@nuxt/scripts',
-    '@nuxt/test-utils',
-    '@nuxt/ui'
-  ]
+    '@nuxt/test-utils'
+  ],
+
+  css: ['~/assets/css/main.css']
 })

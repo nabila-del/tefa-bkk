@@ -67,39 +67,44 @@ const formatDate = (date: string) => {
 
 <template>
   <section>
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-lg font-semibold text-gray-900">Lamaran Terbaru</h2>
-      <NuxtLink to="/dashboard/applications" class="text-blue-600 text-sm hover:text-blue-700">
-        Lihat Semua →
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl font-bold text-slate-900">Lamaran Terbaru</h2>
+      <NuxtLink to="/dashboard/applications" class="text-indigo-600 font-semibold text-sm hover:text-indigo-700 transition-colors flex items-center gap-2">
+        <span>Lihat Semua</span>
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </NuxtLink>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-      <table class="w-full">
-        <thead class="bg-gray-50">
-          <tr>
-            <th class="text-left px-4 py-3 text-sm font-medium text-gray-500">Posisi</th>
-            <th class="text-left px-4 py-3 text-sm font-medium text-gray-500">Perusahaan</th>
-            <th class="text-left px-4 py-3 text-sm font-medium text-gray-500">Tanggal</th>
-            <th class="text-left px-4 py-3 text-sm font-medium text-gray-500">Status</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100">
-          <tr v-for="app in applications" :key="app.id" class="hover:bg-gray-50">
-            <td class="px-4 py-3 font-medium text-gray-900">{{ app.jobTitle }}</td>
-            <td class="px-4 py-3 text-gray-600">{{ app.company }}</td>
-            <td class="px-4 py-3 text-gray-500 text-sm">{{ formatDate(app.appliedAt) }}</td>
-            <td class="px-4 py-3">
-              <span
-                :class="statusColors[app.status]"
-                class="px-2 py-1 rounded-full text-xs font-medium"
-              >
-                {{ statusLabels[app.status] }}
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-slate-50 border-b border-slate-200">
+            <tr>
+              <th class="text-left px-6 py-4 text-sm font-semibold text-slate-700">Posisi</th>
+              <th class="text-left px-6 py-4 text-sm font-semibold text-slate-700">Perusahaan</th>
+              <th class="text-left px-6 py-4 text-sm font-semibold text-slate-700">Tanggal</th>
+              <th class="text-left px-6 py-4 text-sm font-semibold text-slate-700">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr v-for="app in applications" :key="app.id" class="hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-4 font-semibold text-slate-900">{{ app.jobTitle }}</td>
+              <td class="px-6 py-4 text-slate-600">{{ app.company }}</td>
+              <td class="px-6 py-4 text-slate-500 text-sm font-medium">{{ formatDate(app.appliedAt) }}</td>
+              <td class="px-6 py-4">
+                <span
+                  :class="statusColors[app.status]"
+                  class="px-3 py-1 rounded-full text-xs font-semibold shadow-sm"
+                >
+                  {{ statusLabels[app.status] }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>
